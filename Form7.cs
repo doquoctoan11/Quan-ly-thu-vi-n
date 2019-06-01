@@ -12,12 +12,12 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form7 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean them = false;
         public Form7()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean them = false;
         private void Form7_Load(object sender, EventArgs e)
         {
             dgvtheloai.DataSource = db.bangloaisach();
