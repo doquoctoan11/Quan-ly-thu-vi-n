@@ -18,11 +18,6 @@ namespace DO_Quoc_Toan_MTA
         }
         thuvienDataContext db = new thuvienDataContext();
         Boolean tra = false;
-        private void Form11_Load(object sender, EventArgs e)
-        {
-           
-
-        }
 
         private void btntra_Click(object sender, EventArgs e)
         {
@@ -43,11 +38,6 @@ namespace DO_Quoc_Toan_MTA
                 Form11_Load(sender, e);
                 tra = false;
             }
-        }
-
-        private void txtmasach_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
