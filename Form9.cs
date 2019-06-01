@@ -12,13 +12,12 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form9 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean muon = false;
         public Form9()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean muon = false;
-      // Boolean muon1 = false;
         private void Form9_Load(object sender, EventArgs e)
         {
             cbtendg.DisplayMember = "TenDG";
@@ -102,12 +101,6 @@ namespace DO_Quoc_Toan_MTA
                 }
             }
         }
-
-        private void btnmuonsach_Click(object sender, EventArgs e)
-        {
-
-        }
-
        //    private void btnmuonsach_Click(object sender, EventArgs e)
             //{
                /* if (muon1 == true)
