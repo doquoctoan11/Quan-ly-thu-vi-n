@@ -12,13 +12,12 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form4 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean them = false;
         public Form4()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean them = false;
-       
         private void Form4_Load(object sender, EventArgs e)
         {
             dgvDG.DataSource = db.XemDG();
@@ -100,11 +99,6 @@ namespace DO_Quoc_Toan_MTA
             {
                 MessageBox.Show("Không  xóa được");
             }
-        }
-
-        private void dtpngaysinh_ValueChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }
