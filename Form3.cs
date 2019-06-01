@@ -12,6 +12,7 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form3 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
         public Form3()
         {
             InitializeComponent();
@@ -21,7 +22,6 @@ namespace DO_Quoc_Toan_MTA
         {
             this.Close();
         }
-        thuvienDataContext db = new thuvienDataContext();
         private void Form3_Load(object sender, EventArgs e)
         {
             try
@@ -72,11 +72,6 @@ namespace DO_Quoc_Toan_MTA
             {
                 MessageBox.Show("Lỗi rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void lblDanhMuc_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
