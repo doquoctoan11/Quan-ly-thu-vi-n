@@ -12,6 +12,8 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form5 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean them = false;
         public Form5()
         {
             InitializeComponent();
@@ -21,8 +23,6 @@ namespace DO_Quoc_Toan_MTA
         {
             this.Close();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean them = false;
         private void Form5_Load(object sender, EventArgs e)
         {
            cbnxb.DisplayMember = "TenNXB";
@@ -102,13 +102,7 @@ namespace DO_Quoc_Toan_MTA
                 }
             }           
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnxoa_Click(object sender, EventArgs e)
+       private void btnxoa_Click(object sender, EventArgs e)
         {
             try
             {
@@ -121,17 +115,6 @@ namespace DO_Quoc_Toan_MTA
             {
                 MessageBox.Show("không xóa được");
             }
-        }
-
-        private void cbnxb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-           
-        }
-
-        private void cbloai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
     }
 }
