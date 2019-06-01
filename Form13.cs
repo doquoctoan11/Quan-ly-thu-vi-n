@@ -12,13 +12,11 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form13 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
         public Form13()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-
-
         private void rdo1_CheckedChanged(object sender, EventArgs e)
         {
             dgv.DataSource = db.SoSachdangmuon();
