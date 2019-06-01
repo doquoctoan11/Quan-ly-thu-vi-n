@@ -12,17 +12,12 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form17 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean timkiem = true;
         public Form17()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean timkiem = true;
         private void Form17_Load(object sender, EventArgs e)
         {
             
