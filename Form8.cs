@@ -13,23 +13,13 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form8 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean TKPM = false;
+        private Boolean TKDG = false;
         public Form8()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean TKPM = false;
-        Boolean TKDG = false;
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Form8_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             TKPM = true;
@@ -51,12 +41,6 @@ namespace DO_Quoc_Toan_MTA
                 MessageBox.Show("không có");*/
             
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             TKDG = true;
