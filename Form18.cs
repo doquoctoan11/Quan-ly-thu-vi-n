@@ -12,13 +12,13 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form18 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
+        private Boolean timkiem = true;
+        private Boolean Tra = false;
         public Form18()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean timkiem = true;
-        Boolean Tra = false;
         private void Form18_Load(object sender, EventArgs e)
         {
             dgv2.DataSource = db.XemTS();
