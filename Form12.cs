@@ -12,24 +12,17 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form12 : Form
     {
+        thuvienDataContext db = new thuvienDataContext();
         public Form12()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        thuvienDataContext db = new thuvienDataContext();
         
         private void Form12_Load(object sender, EventArgs e)
         {
             dgv.DataSource = db.XemQS();
             txttra.DataBindings.Clear();
             txttra.DataBindings.Add("Text", dgv.DataSource, "MaSach");
-           
-           
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -41,9 +34,7 @@ namespace DO_Quoc_Toan_MTA
         }
 
         private void btnluu_Click(object sender, EventArgs e)
-        {
-         
-            
+        {    
                 try
                 {
                     db.XoaSach1(Convert.ToInt32(txttra.Text));
