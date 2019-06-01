@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 10.875" name="thuvien">
+  <DataContextMoniker Name="/thuvienDataContext" />
+  <nestedChildShapes>
+    <classShape Id="aa87a0ab-4d04-4560-a8c7-c30ea050d4a8" absoluteBounds="3.75, 4.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/thuvienDataContext/ChiTietPhieuMuon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2ee6cfd-4b84-4660-871b-d7aae43c0f15" absoluteBounds="3.765, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af4c7dfd-200c-47e5-be69-10a1e11c5b13" absoluteBounds="1.375, 4.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/thuvienDataContext/DocGia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="070ebbd8-9352-42d1-9e21-e7e3382bdd27" absoluteBounds="1.3900000000000001, 5.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acd72d15-64e6-42e8-bfc5-630d6c32800d" absoluteBounds="4.375, 7.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/thuvienDataContext/LoaiSach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71e5611f-e7f1-4137-9f7e-19fa6b23646f" absoluteBounds="4.3900000000000006, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74be9c62-605a-4d22-9d7f-e2b4a3c596e1" absoluteBounds="4.125, 5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/thuvienDataContext/MuonSach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb006325-d84b-45f5-8941-a7cf80f9619c" absoluteBounds="4.1400000000000006, 5.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f3bb15a-712c-4893-9038-dc7acb0b0968" absoluteBounds="1.375, 1.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/thuvienDataContext/NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc0fc7e1-043d-4b53-9cd6-8ea735523d50" absoluteBounds="1.3900000000000001, 2.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3de3e587-b6a4-47e9-a98f-27b301c2b8aa" absoluteBounds="4.375, 9.25, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/thuvienDataContext/NhaXuatBan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae6865a6-ad06-4b50-b36e-d8d4b5f7cc66" absoluteBounds="4.3900000000000006, 9.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e889d782-8aaf-49a4-855f-da0016600f45" absoluteBounds="9.875, 3.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/thuvienDataContext/Phat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81f37748-f1e9-4d62-b993-cf8c8dff3f0c" absoluteBounds="9.89, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="def74e4e-dd40-4117-bf08-477d92ecff57" absoluteBounds="4.125, 1.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/thuvienDataContext/QuyenSach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3d9c479-4259-4d48-a780-f3444a6b79c5" absoluteBounds="4.1400000000000006, 2.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22c9a272-9d59-428e-9c55-b5bf6677e66d" absoluteBounds="6.875, 2.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/thuvienDataContext/TraSach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45944ca7-8ced-4fd7-82f0-4c54d5964750" absoluteBounds="6.89, 2.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 5); (5.125 : 4.375); (4.75 : 4.375); (4.75 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/MuonSach/MuonSach_ChiTietPhieuMuon" />
+      <nodes>
+        <classShapeMoniker Id="74be9c62-605a-4d22-9d7f-e2b4a3c596e1" />
+        <classShapeMoniker Id="aa87a0ab-4d04-4560-a8c7-c30ea050d4a8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 6.32619466145833); (4.125 : 6.32619466145833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/DocGia/DocGia_MuonSach" />
+      <nodes>
+        <classShapeMoniker Id="af4c7dfd-200c-47e5-be69-10a1e11c5b13" />
+        <classShapeMoniker Id="74be9c62-605a-4d22-9d7f-e2b4a3c596e1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.375 : 3.90549967447917); (2.375 : 4.5); (3.5 : 4.5); (3.5 : 6.2612939453125); (3.625 : 6.2612939453125); (3.625 : 6.95359537760417); (5.125 : 6.95359537760417); (5.125 : 6.57859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/NhanVien/NhanVien_MuonSach" />
+      <nodes>
+        <classShapeMoniker Id="9f3bb15a-712c-4893-9038-dc7acb0b0968" />
+        <classShapeMoniker Id="74be9c62-605a-4d22-9d7f-e2b4a3c596e1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 6.77329752604167); (10.875 : 6.77329752604167); (10.875 : 5.0112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/DocGia/DocGia_Phat" />
+      <nodes>
+        <classShapeMoniker Id="af4c7dfd-200c-47e5-be69-10a1e11c5b13" />
+        <classShapeMoniker Id="e889d782-8aaf-49a4-855f-da0016600f45" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.375 : 3.90549967447917); (4.375 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/QuyenSach/QuyenSach_ChiTietPhieuMuon" />
+      <nodes>
+        <classShapeMoniker Id="def74e4e-dd40-4117-bf08-477d92ecff57" />
+        <classShapeMoniker Id="aa87a0ab-4d04-4560-a8c7-c30ea050d4a8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 2.03125); (10.875 : 2.03125); (10.875 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/QuyenSach/QuyenSach_Phat" />
+      <nodes>
+        <classShapeMoniker Id="def74e4e-dd40-4117-bf08-477d92ecff57" />
+        <classShapeMoniker Id="e889d782-8aaf-49a4-855f-da0016600f45" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 7.375); (6.5 : 7.25); (6.5 : 4.53049967447917); (6.78538561538462 : 4.53049967447917); (6.125 : 3.87011405909455)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/LoaiSach/LoaiSach_QuyenSach" />
+      <nodes>
+        <classShapeMoniker Id="acd72d15-64e6-42e8-bfc5-630d6c32800d" />
+        <classShapeMoniker Id="def74e4e-dd40-4117-bf08-477d92ecff57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 9.3118490375601); (6.8125 : 8.8743490375601); (6.8125 : 4.28049967447917); (6.46769230769231 : 4.28049967447917); (6.09269230769231 : 3.90549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/NhaXuatBan/NhaXuatBan_QuyenSach" />
+      <nodes>
+        <classShapeMoniker Id="3de3e587-b6a4-47e9-a98f-27b301c2b8aa" />
+        <classShapeMoniker Id="def74e4e-dd40-4117-bf08-477d92ecff57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 5.78929768880208); (7.875 : 5.78929768880208); (7.875 : 3.95359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/MuonSach/MuonSach_TraSach" />
+      <nodes>
+        <classShapeMoniker Id="74be9c62-605a-4d22-9d7f-e2b4a3c596e1" />
+        <classShapeMoniker Id="22c9a272-9d59-428e-9c55-b5bf6677e66d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 3.90549967447917); (3.75 : 4.28049967447917); (3.75 : 4.07859537760417); (4.29166666666667 : 4.07859537760417 : JumpStart); (4.45833333333333 : 4.07859537760417 : JumpEnd); (6.75 : 4.07859537760417); (6.875 : 3.95359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/NhanVien/NhanVien_TraSach" />
+      <nodes>
+        <classShapeMoniker Id="9f3bb15a-712c-4893-9038-dc7acb0b0968" />
+        <classShapeMoniker Id="22c9a272-9d59-428e-9c55-b5bf6677e66d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 3.09130452954728); (6.875 : 3.09130452954728)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/thuvienDataContext/QuyenSach/QuyenSach_TraSach" />
+      <nodes>
+        <classShapeMoniker Id="def74e4e-dd40-4117-bf08-477d92ecff57" />
+        <classShapeMoniker Id="22c9a272-9d59-428e-9c55-b5bf6677e66d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

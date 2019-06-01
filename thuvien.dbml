@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="THUCTAPNHOMQLTVMTA" Class="thuvienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=THUCTAPNHOMQLTVMTA;Integrated Security=True" SettingsObjectName="DO_Quoc_Toan_MTA.Properties.Settings" SettingsPropertyName="THUCTAPNHOMQLTVMTAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChiTietPhieuMuon" Member="ChiTietPhieuMuons">
+    <Type Name="ChiTietPhieuMuon">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="MuonSach_ChiTietPhieuMuon" Member="MuonSach" ThisKey="SoPhieuMuon" OtherKey="SoPhieuMuon" Type="MuonSach" IsForeignKey="true" />
+      <Association Name="QuyenSach_ChiTietPhieuMuon" Member="QuyenSach" ThisKey="MaSach" OtherKey="MaSach" Type="QuyenSach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocGia" Member="DocGias">
+    <Type Name="DocGia">
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HanSuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="DocGia_MuonSach" Member="MuonSaches" ThisKey="MaDG" OtherKey="MaDG" Type="MuonSach" />
+      <Association Name="DocGia_Phat" Member="Phats" ThisKey="MaDG" OtherKey="MaDG" Type="Phat" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiSach" Member="LoaiSaches">
+    <Type Name="LoaiSach">
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoaiSach" Member="LoaiSach1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LoaiSach_QuyenSach" Member="QuyenSaches" ThisKey="MaLoaiSach" OtherKey="MaLoaiSach" Type="QuyenSach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MuonSach" Member="MuonSaches">
+    <Type Name="MuonSach">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayMuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="MuonSach_ChiTietPhieuMuon" Member="ChiTietPhieuMuons" ThisKey="SoPhieuMuon" OtherKey="SoPhieuMuon" Type="ChiTietPhieuMuon" />
+      <Association Name="MuonSach_TraSach" Member="TraSaches" ThisKey="SoPhieuMuon" OtherKey="SoPhieuMuon" Type="TraSach" />
+      <Association Name="DocGia_MuonSach" Member="DocGia" ThisKey="MaDG" OtherKey="MaDG" Type="DocGia" IsForeignKey="true" />
+      <Association Name="NhanVien_MuonSach" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Association Name="NhanVien_MuonSach" Member="MuonSaches" ThisKey="MaNV" OtherKey="MaNV" Type="MuonSach" />
+      <Association Name="NhanVien_TraSach" Member="TraSaches" ThisKey="MaNV" OtherKey="MaNV" Type="TraSach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
+    <Type Name="NhaXuatBan">
+      <Column Name="MaNXB" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NhaXuatBan_QuyenSach" Member="QuyenSaches" ThisKey="MaNXB" OtherKey="MaNXB" Type="QuyenSach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phat" Member="Phats">
+    <Type Name="Phat">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LyDoPhat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DocGia_Phat" Member="DocGia" ThisKey="MaDG" OtherKey="MaDG" Type="DocGia" IsForeignKey="true" />
+      <Association Name="QuyenSach_Phat" Member="QuyenSach" ThisKey="MaSach" OtherKey="MaSach" Type="QuyenSach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuyenSach" Member="QuyenSaches">
+    <Type Name="QuyenSach">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TacGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaNXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NamXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QuyenSach_ChiTietPhieuMuon" Member="ChiTietPhieuMuons" ThisKey="MaSach" OtherKey="MaSach" Type="ChiTietPhieuMuon" />
+      <Association Name="QuyenSach_Phat" Member="Phats" ThisKey="MaSach" OtherKey="MaSach" Type="Phat" />
+      <Association Name="QuyenSach_TraSach" Member="TraSaches" ThisKey="MaSach" OtherKey="MaSach" Type="TraSach" />
+      <Association Name="LoaiSach_QuyenSach" Member="LoaiSach" ThisKey="MaLoaiSach" OtherKey="MaLoaiSach" Type="LoaiSach" IsForeignKey="true" />
+      <Association Name="NhaXuatBan_QuyenSach" Member="NhaXuatBan" ThisKey="MaNXB" OtherKey="MaNXB" Type="NhaXuatBan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TraSach" Member="TraSaches">
+    <Type Name="TraSach">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="MuonSach_TraSach" Member="MuonSach" ThisKey="SoPhieuMuon" OtherKey="SoPhieuMuon" Type="MuonSach" IsForeignKey="true" />
+      <Association Name="NhanVien_TraSach" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
+      <Association Name="QuyenSach_TraSach" Member="QuyenSach" ThisKey="MaSach" OtherKey="MaSach" Type="QuyenSach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.XemCTPM" Method="XemCTPM">
+    <ElementType Name="XemCTPMResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemDG" Method="XemDG">
+    <ElementType Name="XemDGResult">
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HanSuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemLS" Method="XemLS">
+    <ElementType Name="XemLSResult">
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HanSuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemMS" Method="XemMS">
+    <ElementType Name="XemMSResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayMuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemNV" Method="XemNV">
+    <ElementType Name="XemNVResult">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemNXB" Method="XemNXB">
+    <ElementType Name="XemNXBResult">
+      <Column Name="MaNXB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemPhat" Method="XemPhat">
+    <ElementType Name="XemPhatResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LyDoPhat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemQS" Method="XemQS">
+    <ElementType Name="XemQSResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TacGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaNXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NamXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.XemTS" Method="XemTS">
+    <ElementType Name="XemTSResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ThemDG" Method="ThemDG">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="email" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="gioitinh" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="han" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaDG" Method="SuaDG">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="email" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="gioitinh" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="han" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaDG1" Method="SuaDG1">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="email" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="gioitinh" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="han" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaDG" Method="XoaDG">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.bangloaisach" Method="bangloaisach">
+    <ElementType Name="bangloaisachResult">
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoaiSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.bangloaisach" Method="bangloaisach1">
+    <ElementType Name="bangloaisachResult1">
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoaiSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.bangsach" Method="bangsach">
+    <ElementType Name="bangsachResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ThemSach" Method="ThemSach">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="tacgia" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="nxb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="souong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaSach" Method="SuaSach">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="tacgia" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="nxb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="souong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaSach" Method="XoaSach">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaSach1" Method="SuaSach1">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="tacgia" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="nxb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="souong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaSach1" Method="XoaSach1">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThemNXB" Method="ThemNXB">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaNXB" Method="SuaNXB">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaNXB" Method="XoaNXB">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThemLoaiSach1" Method="ThemLoaiSach1">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaLoaiSach1" Method="SuaLoaiSach1">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaLoaiSach" Method="XoaLoaiSach">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TimKiemDG" Method="TimKiemDG">
+    <Parameter Name="madg" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimKiemDGResult">
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HanSuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TimKiemPM" Method="TimKiemPM">
+    <Parameter Name="mapm" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimKiemPMResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayMuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TimKiemHanTra" Method="TimKiemHanTra">
+    <Parameter Name="mapm" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimKiemHanTraResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ThemCTMUONsach" Method="ThemCTMUONsach">
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngatra" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThemMuonSach" Method="ThemMuonSach">
+    <Parameter Name="madg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="manv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaymuon" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThemCTMUONsach1" Method="ThemCTMUONsach1">
+    <Parameter Name="mamuon" Type="System.Int32" DbType="Int" />
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngatra" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaCTMUONsach1" Method="SuaCTMUONsach1">
+    <Parameter Name="mamuon" Type="System.Int32" DbType="Int" />
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngatra" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaCTMUONsach1" Method="XoaCTMUONsach1">
+    <Parameter Name="mamuon" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaMuonSach" Method="XoaMuonSach">
+    <Parameter Name="sophieumuon" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuaMuonSach" Method="SuaMuonSach">
+    <Parameter Name="sophieumuon" Type="System.Int32" DbType="Int" />
+    <Parameter Name="madg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="manv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaymuon" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TraSach1" Method="TraSach1">
+    <Parameter Name="maSach" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TraSach1Result">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TraSachThat2" Method="TraSachThat2">
+    <Parameter Name="maSach" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tra" Method="Tra">
+    <Parameter Name="maSach" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SoSachdangmuon" Method="SoSachdangmuon">
+    <ElementType Name="SoSachdangmuonResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayMuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SoSachDaTra" Method="SoSachDaTra">
+    <ElementType Name="SoSachDaTraResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SoSachTraMuon" Method="SoSachTraMuon">
+    <ElementType Name="SoSachTraMuonResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TimKiemDocGia" Method="TimKiemDocGia">
+    <Parameter Name="ma" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimKiemDocGiaResult">
+      <Column Name="MaDG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HanSuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TimKiemSach" Method="TimKiemSach">
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimKiemSachResult">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TacGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaNXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NamXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TimkiemSoPhieuMuon" Method="TimkiemSoPhieuMuon">
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TimkiemSoPhieuMuonResult">
+      <Column Name="SoPhieuMuon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.xoatheomasachmuon" Method="xoatheomasachmuon">
+    <Parameter Name="Sopm" Parameter="sopm" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaDGmuonsach" Method="XoaDGmuonsach">
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.XoaDGmuonsach1" Method="XoaDGmuonsach1">
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThemTraSach" Method="ThemTraSach">
+    <Parameter Name="sopm" Type="System.Int32" DbType="Int" />
+    <Parameter Name="masach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="manv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaytra" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
