@@ -12,12 +12,12 @@ namespace DO_Quoc_Toan_MTA
 {
     public partial class Form6 : Form
     {
+       thuvienDataContext db = new thuvienDataContext();
+        private Boolean them = false;
         public Form6()
         {
             InitializeComponent();
         }
-        thuvienDataContext db = new thuvienDataContext();
-        Boolean them = false;
         private void Form6_Load(object sender, EventArgs e)
         {
             dgvNXB.DataSource = db.XemNXB();
